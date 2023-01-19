@@ -10,6 +10,40 @@
     
 </body>
 <script>
+    const choices = ['rock', 'paper', 'scissor'];
+
+    // Returns a random choice for the computer
+    function getComputerChoice() {
+        return choices[Math.floor(Math.random() * choices.length)];
+    };
+
+    // The gameplay logic of 'Rock, Paper, Scissors'
+    // Tie game
+    // Rock beats Scissor
+    // Scissor beats Paper
+    // Paper beats Rock
+    // lose scenario
+    function playRound(playerSelection, computerSelection) {
+
+        if (playerSelection === computerSelection) {
+            return `It's a tie! Both players picked ${playerSelection}`;
+        } else if (playerSelection === 'rock' && computerSelection === 'scissor') {
+            return "You win! Rock beats Scissor!";
+        } else if (playerSelection === 'scissor' && computerSelection === 'paper') {
+            return "You win! Scissor beats Paper!";
+        } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+            return "You win! Paper beats Rock!";
+        } else {
+            return `You lose! ${computerSelection} beats ${playerSelection}`;
+        }
+    }; 
+
+
+    // Test the logic for playRound() 
+    playerSelection = prompt("Choose: Rock, Paper, or Scissor").toLowerCase();
+    computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
     
 </script>
 </html>
